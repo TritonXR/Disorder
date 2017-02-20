@@ -8,7 +8,7 @@ public class Data_tracker: MonoBehaviour {
     VRNode head = VRNode.Head;
     VRNode lefthand = VRNode.LeftHand;
     VRNode righthand = VRNode.RightHand;
-    private StreamWrier file;
+    private StreamWriter file;
 
 	void Start()
     {
@@ -29,10 +29,10 @@ public class Data_tracker: MonoBehaviour {
     {
         while (true)
         {
-            file.WriteLine(Time.time + " | " + head.transform.position + " " + head.transform.rotation.eulerAngles + " | " +
-            leftHand.transform.position + " " + leftHand.transform.rotation.eulerAngles + " | " +
-            rightHand.transform.position + " " + rightHand.transform.rotation.eulerAngles);
-            yield return new WaitForSeconds(.1f);
+           // file.WriteLine(Time.time + " | " + head.transform.position + " " + head.transform.rotation.eulerAngles + " | " +
+           // leftHand.transform.position + " " + leftHand.transform.rotation.eulerAngles + " | " +
+           // rightHand.transform.position + " " + rightHand.transform.rotation.eulerAngles);
+           //yield return new WaitForSeconds(.1f);
         }
     }
 }
