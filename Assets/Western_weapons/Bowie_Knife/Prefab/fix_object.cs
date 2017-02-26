@@ -9,7 +9,6 @@ public class fix_object : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -19,9 +18,7 @@ public class fix_object : MonoBehaviour {
 
     private void OnJointBreak(float breakForce)
     {
-        left_cube.GetComponent<Rigidbody>().isKinematic = false;
-
-        left_cube.GetComponent<FixedJoint>().breakForce = 250;
+        StartCoroutine(release_leftcube());
 
         
         if(left_cube.transform.name == "c8")
@@ -36,5 +33,13 @@ public class fix_object : MonoBehaviour {
         Debug.Log("We are running delete_parent");
         yield return new WaitForSeconds(3f);
         parent.SetActive(false);
+    }
+
+    IEnumerator release_leftcube()
+    {
+        yield return new WaitForSeconds(0.7f);
+        left_cube.GetComponent<Rigidbody>().isKinematic = false;
+        left_cube.GetComponent<FixedJoint>().breakForce = 250;
+        left_cube.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 }
