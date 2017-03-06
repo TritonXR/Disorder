@@ -15,11 +15,13 @@ public class Data_tracker : MonoBehaviour
     public GameObject rightHand;
     public GameObject knife;
 
+
     //Timer
     private float startTime;
     private float totalTime;
     private bool started = false;
     private bool finished = false;
+    public int counter = 0;
 
     void Start()
     {
@@ -38,15 +40,17 @@ public class Data_tracker : MonoBehaviour
             return;
 
         totalTime = Time.time - startTime;
+        //Debug.Log(totalTime);
     }
 
     IEnumerator RecordData()
     {
         while (true)
         {
+            //Debug.Log(totalTime.ToString());
             //if (started)
             //{
-            file.WriteLine(head.transform.position + " " + head.transform.rotation.eulerAngles + "|" +
+            file.WriteLine(totalTime.ToString() + " " + head.transform.position + " " + head.transform.rotation.eulerAngles + "|" +
             leftHand.transform.position + " " + leftHand.transform.rotation.eulerAngles + "|" +
             rightHand.transform.position + " " + rightHand.transform.rotation.eulerAngles);
             //}
@@ -59,6 +63,8 @@ public class Data_tracker : MonoBehaviour
         file.WriteLine(totalTime.ToString("f2") + head.transform.position + " " + head.transform.rotation.eulerAngles + "|" +
                 leftHand.transform.position + " " + leftHand.transform.rotation.eulerAngles + "|" +
                 rightHand.transform.position + " " + rightHand.transform.rotation.eulerAngles);
+
+        file.Close();
         finished = true;
     }
 }
