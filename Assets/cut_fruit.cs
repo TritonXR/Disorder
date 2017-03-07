@@ -94,7 +94,7 @@ public class cut_fruit : MonoBehaviour {
 
     IEnumerator add_food(Transform A)
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(5f);
         A.gameObject.SetActive(true);
     }
 }

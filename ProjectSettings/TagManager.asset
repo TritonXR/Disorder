@@ -17,6 +17,9 @@ TagManager:
   - Carrot
   - Knife
   - Apple
+  - RedApple
+  - Bread
+  - GreenApple
   layers:
   - Default
   - TransparentFX
