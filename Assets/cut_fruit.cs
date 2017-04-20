@@ -5,6 +5,9 @@ using System.IO;
 
 public class cut_fruit : MonoBehaviour {
 
+    public GameObject cut_right;
+    public GameObject cut_left;
+
     private int idx;
     private int racount;
     private int gacount;
@@ -18,19 +21,23 @@ public class cut_fruit : MonoBehaviour {
     private bool finished = false;
     public int counter = 0;
     private int breadcounter = 0;
-    public StreamWriter file;
-    private String filename;
+    public StreamWriter file_left;
+    public StreamWriter file_right;
+    private String filename_left;
+    private String filename_right;
 
 
     // Use this for initialization
     void Start () {
-        idx = 5;
+        idx = 10;
         racount = 1;
         gacount = 1;
         bcount = 1;
 
-        filename = "time_" + System.DateTime.Now.ToString("MM-dd-yy_hh-mm-ss") + ".txt";
-        file = new StreamWriter(filename);
+        filename_left = "LEFT_time_" + System.DateTime.Now.ToString("MM-dd-yy_hh-mm-ss") + ".txt";
+        filename_right = "RIGHT_time_" + System.DateTime.Now.ToString("MM-dd-yy_hh-mm-ss") + ".txt";
+        file_left = new StreamWriter(filename_left);
+        file_right = new StreamWriter(filename_right);
     }
 	
 	// Update is called once per frame
@@ -44,6 +51,11 @@ public class cut_fruit : MonoBehaviour {
         if (other.CompareTag("Bread"))
         {
             if (counter == 0)
+            {
+                startTime = Time.time;
+                counter++;
+            }
+            if (counter == 51)
             {
                 startTime = Time.time;
                 counter++;
@@ -148,8 +160,22 @@ public class cut_fruit : MonoBehaviour {
             stopTime = Time.time;
             totalTime = stopTime - startTime;
             Debug.Log("totalTime = " + totalTime.ToString() + " stopTime = " + stopTime.ToString() + " startTime = " + startTime.ToString());
-            file.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime/60) + ":" + Math.Round(totalTime % 60));
-            file.Close();
+            file_right.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime/60) + ":" + Math.Round(totalTime % 60));
+            file_right.Close();
+
+            cut_right.SetActive(false);
+            cut_left.SetActive(true);
+        }
+
+        if (breadcounter == 100)
+        {
+            stopTime = Time.time;
+            totalTime = stopTime - startTime;
+            Debug.Log("totalTime = " + totalTime.ToString() + " stopTime = " + stopTime.ToString() + " startTime = " + startTime.ToString());
+            file_left.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime / 60) + ":" + Math.Round(totalTime % 60));
+            file_left.Close();
+
+            cut_left.SetActive(false);
         }
         yield return new WaitForSeconds(2.5f);
         //yield return new WaitForSeconds(0.2f);
