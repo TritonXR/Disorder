@@ -155,7 +155,7 @@ public class cut_fruit : MonoBehaviour {
             StartCoroutine(delete_slice(other.collider.gameObject));
         }*/
 
-        if (other.collider.CompareTag("Bread"))
+        /*if (other.collider.CompareTag("Bread"))
         {
             // The knife is around the top of the bread slice.
             if (this.transform.position.y < (breadTopY + (breadTopY * .1)) && this.transform.position.y > (breadTopY - (breadTopY * .1)))
@@ -163,10 +163,10 @@ public class cut_fruit : MonoBehaviour {
                 entered = true;
             }
 
-        }
+        }*/
     }
 
-    private void OnCollisionExit(Collision collision)
+    /*private void OnCollisionExit(Collision collision)
     {
         if (collision.collider.CompareTag("Bread"))
         {
@@ -203,7 +203,7 @@ public class cut_fruit : MonoBehaviour {
                 entered = false;
             }
         }
-    }
+    }*/
 
     IEnumerator add_bread_tag(Transform go)
     {
