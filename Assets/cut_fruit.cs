@@ -7,11 +7,18 @@ public class cut_fruit : MonoBehaviour {
 
     public GameObject cut_right;
     public GameObject cut_left;
+    public GameObject breadslice;
 
     private int idx;
     private int racount;
     private int gacount;
     private int bcount;
+
+    private float breadHeight;
+    private float breadTopY;
+    private float breadBotY;
+
+    private bool entered;
 
     //Timer
     private float startTime;
@@ -34,10 +41,16 @@ public class cut_fruit : MonoBehaviour {
         gacount = 1;
         bcount = 1;
 
+        entered = false;
+
         filename_left = "LEFT_time_" + System.DateTime.Now.ToString("MM-dd-yy_hh-mm-ss") + ".txt";
         filename_right = "RIGHT_time_" + System.DateTime.Now.ToString("MM-dd-yy_hh-mm-ss") + ".txt";
         file_left = new StreamWriter(filename_left);
         file_right = new StreamWriter(filename_right);
+
+        breadHeight = breadslice.GetComponent<Renderer>().bounds.size.y;
+        breadTopY = breadslice.transform.position.y + (breadHeight / 2);
+        breadBotY = breadslice.transform.position.y - (breadHeight / 2);
     }
 	
 	// Update is called once per frame
@@ -83,7 +96,7 @@ public class cut_fruit : MonoBehaviour {
     private void OnCollisionEnter(Collision other)
     {
         // RED APPLE
-        if (other.collider.CompareTag("RedApple")) 
+        /*if (other.collider.CompareTag("RedApple")) 
         {
             Debug.Log("apple child count = " + other.collider.gameObject.transform.parent.childCount);
 
@@ -113,7 +126,7 @@ public class cut_fruit : MonoBehaviour {
             other.collider.gameObject.AddComponent<Rigidbody>();
 
             StartCoroutine(delete_slice(other.collider.gameObject));
-        }
+        }*/
 
         // BREAD
         /*if (other.collider.CompareTag("Bread"))
@@ -141,6 +154,55 @@ public class cut_fruit : MonoBehaviour {
 
             StartCoroutine(delete_slice(other.collider.gameObject));
         }*/
+
+        if (other.collider.CompareTag("Bread"))
+        {
+            // The knife is around the top of the bread slice.
+            if (this.transform.position.y < (breadTopY + (breadTopY * .1)) && this.transform.position.y > (breadTopY - (breadTopY * .1)))
+            {
+                entered = true;
+            }
+
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("Bread"))
+        {
+            // The knife has passed the top of the bread slice and can now actually cut the bread if the knife has passed the top
+            if (entered == true && this.transform.position.y < (breadBotY + (breadBotY * .1)) && this.transform.position.y > (breadBotY - (breadBotY * .1)))
+            {
+                if (counter == 0)
+                {
+                    startTime = Time.time;
+                    counter++;
+                }
+                if (counter == 51)
+                {
+                    startTime = Time.time;
+                    counter++;
+                }
+                if (collision.gameObject.transform.parent.childCount > 1)
+                {
+                    StartCoroutine(add_bread_tag(collision.gameObject.transform.parent.GetChild(1)));
+                }
+
+
+                if (collision.gameObject.transform.parent.childCount == 2 && bcount < idx)
+                {
+                    StartCoroutine(delete_slice(collision.gameObject.transform.parent.GetChild(1).gameObject));
+                    StartCoroutine(add_food(collision.gameObject.transform.parent.parent.GetChild(bcount)));
+                    bcount++;
+                }
+
+                collision.gameObject.transform.parent = null;
+                collision.gameObject.AddComponent<Rigidbody>();
+
+                StartCoroutine(delete_slice(collision.gameObject));
+                entered = false;
+            }
+        }
     }
 
     IEnumerator add_bread_tag(Transform go)
