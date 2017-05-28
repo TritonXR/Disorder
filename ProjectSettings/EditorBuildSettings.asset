@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/VRTK/Examples/034_Controls_InteractingWithUnityUI.unity
     guid: 2ce499512664316478fc7632f4bb4674
   - enabled: 1
-    path: Assets/VRTK/Examples/ObjectSnappingToDropZones.unity
+    path: Assets/Scenes/ObjectSnappingToDropZones.unity
     guid: e1f78999f64dbba48ada7e6cdd560233
