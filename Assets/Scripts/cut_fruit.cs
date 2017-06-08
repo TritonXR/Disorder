@@ -2,6 +2,7 @@
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class cut_fruit : MonoBehaviour {
 
@@ -9,6 +10,9 @@ public class cut_fruit : MonoBehaviour {
     public GameObject cut_left;
     public GameObject breadslice;
     public GameObject knife;
+    public Texture breadcrust_glow;
+    public Texture carrot_glow;
+    public Texture cucumber_glow;
 
     private int idx;
     private int racount;
@@ -36,10 +40,12 @@ public class cut_fruit : MonoBehaviour {
     private String filename_left;
     private String filename_right;
 
+    Material glowmaterial;
+
 
     // Use this for initialization
     void Start () {
-        idx = 10;
+        idx = 12;
         racount = 1;
         gacount = 1;
         bcount = 1;
@@ -57,7 +63,9 @@ public class cut_fruit : MonoBehaviour {
 
         initial_knife_pos = knife.transform.position;
         initial_knife_rot = knife.transform.rotation;
-    }
+
+        glowmaterial = new Material(Shader.Find("Particles/Additive (Soft)"));
+  }
 	
 	// Update is called once per frame
 	void Update () {
@@ -213,9 +221,10 @@ public class cut_fruit : MonoBehaviour {
 
     IEnumerator add_bread_tag(Transform go)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         //yield return new WaitForSeconds(0.1f);
         go.tag = "Bread";
+        go.GetComponent<Renderer>().material.shader = Shader.Find("FX/Flare");
         go.GetComponent<BoxCollider>().enabled = true;
     }
 
@@ -247,12 +256,14 @@ public class cut_fruit : MonoBehaviour {
             file_right.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime/60) + ":" + Math.Round(totalTime % 60));
             file_right.Close();
 
+            startTime = Time.time;
+
             StartCoroutine(change_sign(cut_left, cut_right));
 
             //knife.transform.SetPositionAndRotation(initial_knife_pos, initial_knife_rot);
         }
 
-        if (breadcounter == 100)
+        if (breadcounter == 99)
         {
             stopTime = Time.time;
             totalTime = stopTime - startTime;
@@ -261,10 +272,17 @@ public class cut_fruit : MonoBehaviour {
             file_left.Close();
 
             cut_left.SetActive(false);
+            StartCoroutine(back_to_main_menu());
         }
         yield return new WaitForSeconds(2.5f);
         //yield return new WaitForSeconds(0.2f);
         other.SetActive(false);
+    }
+
+    IEnumerator back_to_main_menu()
+    {
+      yield return new WaitForSeconds(6f);
+      SceneManager.LoadScene(0);
     }
 
     IEnumerator add_food(Transform A)
