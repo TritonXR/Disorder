@@ -13,6 +13,7 @@ public class startcountdown : MonoBehaviour {
   private int count1;
   private int count2;
   private int flag;
+  private bool startTiming;
 
   //File to record the data
   public StreamWriter file1;
@@ -49,11 +50,19 @@ public class startcountdown : MonoBehaviour {
     file2 = new StreamWriter(filename2);
     file2.WriteLine("Time\thead_x\thead_y\thead_z\thead_rotx\thead_roty\thead_rotz\t" +
           "left_x\tleft_y\tleft_z\tleft_rotx\tleft_roty\tleft_rotz\tright_x\tright_y\tright_z\tright_rotx\tright_roty\tright_rotz\n");
+
+    startTiming = false;
   }
 	
 	// Update is called once per frame
 	void Update () {
-   
+    if (startTiming)
+    {
+      totalTime = Time.time - startTime;
+    } else
+    {
+      totalTime = 0f;
+    }
   }
 
   /*private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -78,13 +87,16 @@ public class startcountdown : MonoBehaviour {
 
   IEnumerator count_down()
   {
-    while(count1 > -1)
+    startTime = Time.time;
+    startTiming = true;
+    while (count1 > -1)
     {
       StartCoroutine(RecordData1());
       yield return new WaitForSeconds(1f);
       countdown_textm.text = count1.ToString();
       count1--;
     }
+    startTiming = false;
     countdown_textm.text = "Done!";
 
     yield return new WaitForSeconds(1f);
@@ -92,7 +104,9 @@ public class startcountdown : MonoBehaviour {
     countdown_textm.text = "";
     yield return new WaitForSeconds(3f);
 
-    while(count2 > -1)
+    startTime = Time.time;
+    startTiming = true;
+    while (count2 > -1)
     {
       StartCoroutine(RecordData2());
       yield return new WaitForSeconds(1f);
