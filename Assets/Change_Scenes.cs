@@ -15,18 +15,22 @@ public class Change_Scenes : MonoBehaviour {
 		if(Input.GetKeyDown("0"))
     {
       SceneManager.LoadScene(0);
+      Data_tracker.currentScene = 0;
     }
     if (Input.GetKeyDown("1"))
     {
-      SceneManager.LoadScene(1);
+      SceneManager.LoadScene(2);
+      Data_tracker.currentScene = 1;
     }
     if (Input.GetKeyDown("2"))
     {
       SceneManager.LoadScene(2);
+      Data_tracker.currentScene = 2;
     }
     if (Input.GetKeyDown("3"))
     {
-      SceneManager.LoadScene(3);
+      SceneManager.LoadScene(2);
+      Data_tracker.currentScene = 3;
     }
   }
 }

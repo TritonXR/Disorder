@@ -5,6 +5,9 @@ using System.IO;
 
 public class Data_tracker : MonoBehaviour
 {
+  // public static variable to keep track of current scene
+  public static int currentScene;
+
     //File to record the data
     public StreamWriter file;
 	private String filename;
@@ -13,7 +16,7 @@ public class Data_tracker : MonoBehaviour
     public GameObject head;
     public GameObject leftHand;
     public GameObject rightHand;
-    public GameObject knife;
+    //public GameObject knife;
 
 
     //Timer

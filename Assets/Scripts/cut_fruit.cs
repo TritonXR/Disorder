@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class cut_fruit : MonoBehaviour {
 
-    public GameObject cut_right;
-    public GameObject cut_left;
+  public GameObject instruction;
+
+    //public GameObject cut_right;
+    //public GameObject cut_left;
     public GameObject breadslice;
     public GameObject knife;
     public Texture breadcrust_glow;
@@ -15,8 +17,6 @@ public class cut_fruit : MonoBehaviour {
     public Texture cucumber_glow;
 
     private int idx;
-    private int racount;
-    private int gacount;
     private int bcount;
     private Vector3 initial_knife_pos;
     private Quaternion initial_knife_rot;
@@ -46,8 +46,6 @@ public class cut_fruit : MonoBehaviour {
     // Use this for initialization
     void Start () {
         idx = 12;
-        racount = 1;
-        gacount = 1;
         bcount = 1;
 
         entered = false;
@@ -65,159 +63,61 @@ public class cut_fruit : MonoBehaviour {
         initial_knife_rot = knife.transform.rotation;
 
         glowmaterial = new Material(Shader.Find("Particles/Additive (Soft)"));
+
+    StartCoroutine(changeInstructions1());
   }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	IEnumerator changeInstructions1()
+  {
+    yield return new WaitForSeconds(5f);
+    instruction.GetComponent<TextMesh>().text = "Cut up and down from \nLEFT to RIGHT…";
+  }
 
-    private void OnTriggerEnter(Collider other)
+  IEnumerator changeInstructions2()
+  {
+    instruction.GetComponent<TextMesh>().text = "Switch controller from \nLEFT hand to RIGHT hand...";
+    yield return new WaitForSeconds(5f);
+    instruction.GetComponent<TextMesh>().text = "Cut up and down from \nRIGHT to LEFT...";
+  }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    // BREAD
+    if (other.CompareTag("Bread"))
     {
-        // BREAD
-        if (other.CompareTag("Bread"))
+      if (counter == 0)
+      {
+        startTime = Time.time;
+        counter++;
+      }
+      if (counter == 48)
+      {
+        startTime = Time.time;
+        counter++;
+      }
+      if (other.gameObject.transform.parent.childCount > 1)
+      {
+        if(other.gameObject.GetComponent<special_carrot>() != null)
         {
-            if (counter == 0)
-            {
-                startTime = Time.time;
-                counter++;
-            }
-            if (counter == 51)
-            {
-                startTime = Time.time;
-                counter++;
-            }
-            if (other.gameObject.transform.parent.childCount > 1)
-            {
-                StartCoroutine(add_bread_tag(other.gameObject.transform.parent.GetChild(1)));
-            }
-
-
-            if (other.gameObject.transform.parent.childCount == 2 && bcount < idx)
-            {
-                StartCoroutine(delete_slice(other.gameObject.transform.parent.GetChild(1).gameObject));
-                StartCoroutine(add_food(other.gameObject.transform.parent.parent.GetChild(bcount)));
-                bcount++;
-            }
-
-            other.gameObject.transform.parent = null;
-            other.gameObject.AddComponent<Rigidbody>();
-
-            StartCoroutine(delete_slice(other.gameObject));
+          StartCoroutine(add_bread_tag(other.gameObject.transform.parent.parent.GetChild(1)));
         }
+        StartCoroutine(add_bread_tag(other.gameObject.transform.parent.GetChild(1)));
+      }
+
+
+      if (other.gameObject.transform.parent.childCount == 2 && bcount < idx)
+      {
+        StartCoroutine(delete_slice(other.gameObject.transform.parent.GetChild(1).gameObject));
+        StartCoroutine(add_food(other.gameObject.transform.parent.parent.GetChild(bcount)));
+        bcount++;
+      }
+
+      other.gameObject.transform.parent = null;
+      other.gameObject.AddComponent<Rigidbody>();
+
+      StartCoroutine(delete_slice(other.gameObject));
     }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        // RED APPLE
-        /*if (other.collider.CompareTag("RedApple")) 
-        {
-            Debug.Log("apple child count = " + other.collider.gameObject.transform.parent.childCount);
-
-            if (other.collider.gameObject.transform.parent.childCount == 1 && racount < idx)
-            {
-                StartCoroutine(add_food(other.collider.gameObject.transform.parent.parent.GetChild(racount)));
-                racount++;
-            }
-
-            other.collider.gameObject.transform.parent = null;
-            other.collider.gameObject.AddComponent<Rigidbody>();
-
-            StartCoroutine(delete_slice(other.collider.gameObject));
-        }
-
-        // GREEN APPLE
-        if (other.collider.CompareTag("GreenApple"))
-        {
-
-            if (other.collider.gameObject.transform.parent.childCount == 1 && gacount < idx)
-            {
-                StartCoroutine(add_food(other.collider.gameObject.transform.parent.parent.GetChild(gacount)));
-                gacount++;
-            }
-
-            other.collider.gameObject.transform.parent = null;
-            other.collider.gameObject.AddComponent<Rigidbody>();
-
-            StartCoroutine(delete_slice(other.collider.gameObject));
-        }*/
-
-        // BREAD
-        /*if (other.collider.CompareTag("Bread"))
-        {
-            if(counter == 0)
-            {
-                startTime = Time.time;
-                counter++;
-            }
-            if (other.collider.gameObject.transform.parent.childCount > 1)
-            {
-                Debug.Log("hi");
-                StartCoroutine(add_bread_tag(other.collider.gameObject.transform.parent.GetChild(1)));
-            }
-
-
-            if (other.collider.gameObject.transform.parent.childCount == 1 && bcount < idx)
-            {
-                StartCoroutine(add_food(other.collider.gameObject.transform.parent.parent.GetChild(bcount)));
-                bcount++;
-            }
-
-            other.collider.gameObject.transform.parent = null;
-            other.collider.gameObject.AddComponent<Rigidbody>();
-
-            StartCoroutine(delete_slice(other.collider.gameObject));
-        }*/
-
-        /*if (other.collider.CompareTag("Bread"))
-        {
-            // The knife is around the top of the bread slice.
-            if (this.transform.position.y < (breadTopY + (breadTopY * .1)) && this.transform.position.y > (breadTopY - (breadTopY * .1)))
-            {
-                entered = true;
-            }
-
-        }*/
-    }
-
-    /*private void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.CompareTag("Bread"))
-        {
-            // The knife has passed the top of the bread slice and can now actually cut the bread if the knife has passed the top
-            if (entered == true && this.transform.position.y < (breadBotY + (breadBotY * .1)) && this.transform.position.y > (breadBotY - (breadBotY * .1)))
-            {
-                if (counter == 0)
-                {
-                    startTime = Time.time;
-                    counter++;
-                }
-                if (counter == 51)
-                {
-                    startTime = Time.time;
-                    counter++;
-                }
-                if (collision.gameObject.transform.parent.childCount > 1)
-                {
-                    StartCoroutine(add_bread_tag(collision.gameObject.transform.parent.GetChild(1)));
-                }
-
-
-                if (collision.gameObject.transform.parent.childCount == 2 && bcount < idx)
-                {
-                    StartCoroutine(delete_slice(collision.gameObject.transform.parent.GetChild(1).gameObject));
-                    StartCoroutine(add_food(collision.gameObject.transform.parent.parent.GetChild(bcount)));
-                    bcount++;
-                }
-
-                collision.gameObject.transform.parent = null;
-                collision.gameObject.AddComponent<Rigidbody>();
-
-                StartCoroutine(delete_slice(collision.gameObject));
-                entered = false;
-            }
-        }
-    }*/
+  }
 
     IEnumerator add_bread_tag(Transform go)
     {
@@ -228,27 +128,11 @@ public class cut_fruit : MonoBehaviour {
         go.GetComponent<BoxCollider>().enabled = true;
     }
 
-    IEnumerator add_cucumber_tag(Transform go)
-    {
-      yield return new WaitForSeconds(1f);
-      //yield return new WaitForSeconds(0.1f);
-      go.tag = "Cucumber";
-      go.GetComponent<BoxCollider>().enabled = true;
-    }
-
-    IEnumerator add_carrot_tag(Transform go)
-    {
-      yield return new WaitForSeconds(1f);
-      //yield return new WaitForSeconds(0.1f);
-      go.tag = "Carrot";
-      go.GetComponent<BoxCollider>().enabled = true;
-    }
-
   IEnumerator delete_slice(GameObject other)
     {
         breadcounter++;
         Debug.Log(breadcounter);
-        if (breadcounter == 50)
+        if (breadcounter == 48)
         {
             stopTime = Time.time;
             totalTime = stopTime - startTime;
@@ -258,12 +142,12 @@ public class cut_fruit : MonoBehaviour {
 
             startTime = Time.time;
 
-            StartCoroutine(change_sign(cut_left, cut_right));
+            StartCoroutine(changeInstructions2());
 
             //knife.transform.SetPositionAndRotation(initial_knife_pos, initial_knife_rot);
         }
 
-        if (breadcounter == 99)
+        if (breadcounter == 96)
         {
             stopTime = Time.time;
             totalTime = stopTime - startTime;
@@ -271,7 +155,7 @@ public class cut_fruit : MonoBehaviour {
             file_left.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime / 60) + ":" + Math.Round(totalTime % 60));
             file_left.Close();
 
-            cut_left.SetActive(false);
+            //cut_left.SetActive(false);
             StartCoroutine(back_to_main_menu());
         }
         yield return new WaitForSeconds(2.5f);
