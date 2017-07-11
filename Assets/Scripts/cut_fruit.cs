@@ -90,7 +90,7 @@ public class cut_fruit : MonoBehaviour {
         startTime = Time.time;
         counter++;
       }
-      if (counter == 48)
+      if (counter == 38)
       {
         startTime = Time.time;
         counter++;
@@ -132,7 +132,7 @@ public class cut_fruit : MonoBehaviour {
     {
         breadcounter++;
         Debug.Log(breadcounter);
-        if (breadcounter == 48)
+        if (breadcounter == 38)
         {
             stopTime = Time.time;
             totalTime = stopTime - startTime;
@@ -146,8 +146,8 @@ public class cut_fruit : MonoBehaviour {
 
             //knife.transform.SetPositionAndRotation(initial_knife_pos, initial_knife_rot);
         }
-
-        if (breadcounter == 96)
+        Debug.Log(breadcounter);
+        if (breadcounter == 75)
         {
             stopTime = Time.time;
             totalTime = stopTime - startTime;
@@ -158,20 +158,20 @@ public class cut_fruit : MonoBehaviour {
             //cut_left.SetActive(false);
             StartCoroutine(back_to_main_menu());
         }
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.5f);
         //yield return new WaitForSeconds(0.2f);
         other.SetActive(false);
     }
 
     IEnumerator back_to_main_menu()
     {
-      yield return new WaitForSeconds(6f);
+      yield return new WaitForSeconds(4f);
       SceneManager.LoadScene(0);
     }
 
     IEnumerator add_food(Transform A)
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         //yield return new WaitForSeconds(1f);
         A.gameObject.SetActive(true);
     }
