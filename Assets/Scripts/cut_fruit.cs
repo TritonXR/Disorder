@@ -137,8 +137,8 @@ public class cut_fruit : MonoBehaviour {
             stopTime = Time.time;
             totalTime = stopTime - startTime;
             Debug.Log("totalTime = " + totalTime.ToString() + " stopTime = " + stopTime.ToString() + " startTime = " + startTime.ToString());
-            file_right.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime/60) + ":" + Math.Round(totalTime % 60));
-            file_right.Close();
+            file_left.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime/60) + ":" + Math.Round(totalTime % 60));
+            file_left.Close();
 
             startTime = Time.time;
 
@@ -152,8 +152,8 @@ public class cut_fruit : MonoBehaviour {
             stopTime = Time.time;
             totalTime = stopTime - startTime;
             Debug.Log("totalTime = " + totalTime.ToString() + " stopTime = " + stopTime.ToString() + " startTime = " + startTime.ToString());
-            file_left.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime / 60) + ":" + Math.Round(totalTime % 60));
-            file_left.Close();
+            file_right.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime / 60) + ":" + Math.Round(totalTime % 60));
+            file_right.Close();
 
             //cut_left.SetActive(false);
             StartCoroutine(back_to_main_menu());
