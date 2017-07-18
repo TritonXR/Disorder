@@ -10,10 +10,13 @@ public class load_kitchen : MonoBehaviour {
   public GameObject hands;
 
   // Objects for cutting scene
-  public GameObject foods;
-  public GameObject knife;
+  public GameObject foods_left;
+  public GameObject foods_right;
+  public GameObject knife_left;
+  public GameObject knife_right;
   public GameObject cuttingboard;
-  public GameObject instruction2;
+  public GameObject instructionR;
+  public GameObject instructionL;
 
   // Objects for moving test scene
   public GameObject mug;
@@ -29,16 +32,18 @@ public class load_kitchen : MonoBehaviour {
     else if (Data_tracker.currentScene == 2)
     {
       island.SetActive(true);
-      foods.SetActive(true);
-      knife.SetActive(true);
+      foods_left.SetActive(true);
+      knife_left.SetActive(true);
       cuttingboard.SetActive(true);
-      instruction2.SetActive(true);
+      instructionL.SetActive(true);
     }
     else if (Data_tracker.currentScene == 3)
     {
       island.SetActive(true);
-      mug.SetActive(true);
-      waterboiler.SetActive(true);
+      foods_right.SetActive(true);
+      knife_right.SetActive(true);
+      cuttingboard.SetActive(true);
+      instructionR.SetActive(true);
     }
   }
 	

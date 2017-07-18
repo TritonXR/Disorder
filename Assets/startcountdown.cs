@@ -100,7 +100,7 @@ public class startcountdown : MonoBehaviour {
     countdown_textm.text = "Done!";
 
     yield return new WaitForSeconds(1f);
-    inst_textm.text = "Hold your controllers in your \nlap for 10 seconds...";
+    inst_textm.text = "Hold your controllers in your lap for 10 seconds...";
     countdown_textm.text = "";
     yield return new WaitForSeconds(3f);
 
