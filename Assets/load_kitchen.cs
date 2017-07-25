@@ -22,8 +22,8 @@ public class load_kitchen : MonoBehaviour {
   public GameObject mug;
   public GameObject waterboiler;
 
-	// Use this for initialization
-	void Start () {
+  // Use this for initialization
+  void Start() {
     if (Data_tracker.currentScene == 1)
     {
       hands.SetActive(true);
@@ -44,6 +44,12 @@ public class load_kitchen : MonoBehaviour {
       knife_right.SetActive(true);
       cuttingboard.SetActive(true);
       instructionR.SetActive(true);
+    }
+    else if (Data_tracker.currentScene == 4)
+    {
+      island.SetActive(true);
+      mug.SetActive(true);
+      waterboiler.SetActive(true);
     }
   }
 	

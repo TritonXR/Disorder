@@ -139,6 +139,7 @@ public class cut_fruit_left : MonoBehaviour
       Debug.Log("totalTime = " + totalTime.ToString() + " stopTime = " + stopTime.ToString() + " startTime = " + startTime.ToString());
       file_left.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime / 60) + ":" + Math.Round(totalTime % 60));
       file_left.Close();
+      Debug.Log("FINISHED WITH LEFT!");
 
       //StartCoroutine(changeInstructions2());
 
