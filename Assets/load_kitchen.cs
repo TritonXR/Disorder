@@ -21,6 +21,8 @@ public class load_kitchen : MonoBehaviour {
   // Objects for moving test scene
   public GameObject mug;
   public GameObject waterboiler;
+  public GameObject left_cylinder;
+  public GameObject right_cylinder;
 
   // Use this for initialization
   void Start() {
@@ -50,6 +52,14 @@ public class load_kitchen : MonoBehaviour {
       island.SetActive(true);
       mug.SetActive(true);
       waterboiler.SetActive(true);
+      left_cylinder.SetActive(true);
+    }
+    else if(Data_tracker.currentScene == 5)
+    {
+      island.SetActive(true);
+      mug.SetActive(true);
+      waterboiler.SetActive(true);
+      right_cylinder.SetActive(true);
     }
   }
 	
