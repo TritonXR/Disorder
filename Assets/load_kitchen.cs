@@ -19,10 +19,18 @@ public class load_kitchen : MonoBehaviour {
   public GameObject instructionL;
 
   // Objects for moving test scene
-  public GameObject mug;
-  public GameObject waterboiler;
-  public GameObject left_cylinder;
-  public GameObject right_cylinder;
+  public GameObject l_mug1;
+  public GameObject l_mug2;
+  public GameObject l_mug3;
+  public GameObject l_mug4;
+  public GameObject l_mug5;
+  public GameObject r_mug1;
+  public GameObject r_mug2;
+  public GameObject r_mug3;
+  public GameObject r_mug4;
+  public GameObject r_mug5;
+  public GameObject left_ring;
+  public GameObject right_ring;
 
   // Use this for initialization
   void Start() {
@@ -50,16 +58,24 @@ public class load_kitchen : MonoBehaviour {
     else if (Data_tracker.currentScene == 4)
     {
       island.SetActive(true);
-      mug.SetActive(true);
-      waterboiler.SetActive(true);
-      left_cylinder.SetActive(true);
+      r_mug1.SetActive(true);
+      r_mug2.SetActive(true);
+      r_mug3.SetActive(true);
+      r_mug4.SetActive(true);
+      r_mug5.SetActive(true);
+      right_ring.SetActive(true);
+      left_ring.SetActive(true);
     }
     else if(Data_tracker.currentScene == 5)
     {
       island.SetActive(true);
-      mug.SetActive(true);
-      waterboiler.SetActive(true);
-      right_cylinder.SetActive(true);
+      l_mug1.SetActive(true);
+      l_mug2.SetActive(true);
+      l_mug3.SetActive(true);
+      l_mug4.SetActive(true);
+      l_mug5.SetActive(true);
+      left_ring.SetActive(true);
+      right_ring.SetActive(true);
     }
   }
 	
