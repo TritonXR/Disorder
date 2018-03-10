@@ -16,7 +16,7 @@ public class remove_coffee : MonoBehaviour {
       this.transform.position.y > (.9*headset.transform.position.y) && this.transform.position.y < (1.1*headset.transform.position.y) &&
       this.transform.position.z > (.9*headset.transform.position.z) && this.transform.position.z < (1.1*headset.transform.position.z))
     {
-      this.gameObject.transform.FindChild("coffee").gameObject.SetActive(false);
+      this.gameObject.transform.Find("coffee").gameObject.SetActive(false);
       Debug.Log("Update delete coffee");
     }
 	}
@@ -25,7 +25,7 @@ public class remove_coffee : MonoBehaviour {
   {
     if (other.gameObject.GetComponent<is_camera_head>() != null)
     {
-      this.gameObject.transform.FindChild("coffee").gameObject.SetActive(false);
+      this.gameObject.transform.Find("coffee").gameObject.SetActive(false);
       Debug.Log("Trigger delete coffee");
     }
   }

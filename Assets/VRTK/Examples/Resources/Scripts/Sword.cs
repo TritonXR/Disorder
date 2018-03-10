@@ -39,5 +39,13 @@
                 collisionForce = collision.relativeVelocity.magnitude * impactMagnifier;
             }
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Mug"))
+            {
+                isGrabbable = true;
+            }
+        }
     }
 }

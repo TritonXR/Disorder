@@ -84,7 +84,8 @@ public class FluidHolderScript : MonoBehaviour
       //The actual amount lost.
       float differenceAmount = previousAmount - newAmount;
 
-      Vector3 spawnPos = sourceSpawnObject.GetComponent<Collider>().bounds.min;//transform.position + new Vector3(0,3 ,0);
+      Vector3 spawnPos = sourceSpawnObject.GetComponent<Collider>().bounds.min;
+      //transform.position + new Vector3(0,3 ,0);
 
       // Debug.Log(spawnPos);
 

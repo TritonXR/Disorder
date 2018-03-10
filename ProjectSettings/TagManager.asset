@@ -4,22 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FxTemporaire
-  - projectile
-  - TeleportIgnore
-  - Cubes
-  - Spheres
-  - Leg
-  - Arm
-  - Saucers
-  - Torso
-  - OtherSaucers
-  - Carrot
-  - Knife
-  - Apple
-  - RedApple
   - Bread
-  - GreenApple
+  - Saucers
+  - Knife
+  - OtherSide
+  - Mug
+  - OtherSection
   layers:
   - Default
   - TransparentFX
