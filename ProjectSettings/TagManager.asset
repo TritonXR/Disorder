@@ -10,6 +10,8 @@ TagManager:
   - OtherSide
   - Mug
   - OtherSection
+  - OtherSection2
+  - Mug2
   layers:
   - Default
   - TransparentFX

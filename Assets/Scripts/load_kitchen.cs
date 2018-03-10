@@ -17,6 +17,7 @@ public class load_kitchen : MonoBehaviour {
   public GameObject cuttingboard;
   public GameObject instructionR;
   public GameObject instructionL;
+  public GameObject instr_cup;
 
   // Objects for moving test scene
   public GameObject l_mug1;
@@ -31,6 +32,8 @@ public class load_kitchen : MonoBehaviour {
   public GameObject r_mug5;
   public GameObject left_ring;
   public GameObject right_ring;
+  public GameObject left_arc;
+  public GameObject right_arc;
   public GameObject beaker;
   public GameObject spout;
 
@@ -67,7 +70,8 @@ public class load_kitchen : MonoBehaviour {
       r_mug5.SetActive(true);
       right_ring.SetActive(true);
       left_ring.SetActive(true);
-      beaker.SetActive(true);
+	  right_arc.SetActive(true);
+	  instr_cup.SetActive(true);
       spout.SetActive(true);
     }
     else if(Data_tracker.currentScene == 5)
@@ -80,7 +84,8 @@ public class load_kitchen : MonoBehaviour {
       l_mug5.SetActive(true);
       left_ring.SetActive(true);
       right_ring.SetActive(true);
-      beaker.SetActive(true);
+	  left_arc.SetActive(true);
+	  instr_cup.SetActive(true);
       spout.SetActive(true);
     }
   }
