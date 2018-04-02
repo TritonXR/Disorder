@@ -1,6 +1,6 @@
 # Disorder
 
-Optimizing assessments of rate of progression in PD is important in designing clinical trials, 
+Optimizing assessments of rate of progression in Parkinson's disease (PD) is important in designing clinical trials, 
 especially for potential disease-modifying agents. Measuring disease progression in PD is challenging, and a 
 variety of tests have been employed for this purpose, including measures of impairment, disability, and 
 quality of life. Nevertheless, a consistently reliable, easy to use measure of disease progression remains 
