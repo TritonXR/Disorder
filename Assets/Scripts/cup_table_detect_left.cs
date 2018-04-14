@@ -121,7 +121,7 @@ public class cup_table_detect_left : MonoBehaviour
     }
   }
 
-	void OnCollisionEnter(Collision other)
+	/*void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.tag == "Mug") {
 			roundCounter++;
@@ -141,7 +141,7 @@ public class cup_table_detect_left : MonoBehaviour
 			mugRight4.SetActive(true);
 			mugRight5.SetActive(true);
 		}
-	}
+	}*/
 
     //Usable
   IEnumerator back_to_main_menu()
