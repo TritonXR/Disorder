@@ -12,6 +12,7 @@ TagManager:
   - OtherSection
   - OtherSection2
   - Mug2
+  - Coffee
   layers:
   - Default
   - TransparentFX
