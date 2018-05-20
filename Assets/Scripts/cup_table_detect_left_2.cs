@@ -58,9 +58,6 @@ public class cup_table_detect_left_2 : MonoBehaviour
 
 		entered = false;
 
-		filename_left = "MUG_LEFT_time_" + System.DateTime.Now.ToString("MM-dd-yy_hh-mm-ss") + ".txt";
-		file_left = new StreamWriter(filename_left);
-
 		mugHeight = mugLeft1.GetComponent<Renderer>().bounds.size.y;
 		mugTopY = mugLeft1.transform.position.y + (mugHeight / 2);
 		mugBotY = mugLeft1.transform.position.y - (mugHeight / 2);

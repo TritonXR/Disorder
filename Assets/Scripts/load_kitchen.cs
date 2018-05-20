@@ -17,7 +17,8 @@ public class load_kitchen : MonoBehaviour {
   public GameObject cuttingboard;
   public GameObject instructionR;
   public GameObject instructionL;
-  public GameObject instr_cup;
+  public GameObject instr_cup_L;
+  public GameObject instr_cup_R;
 
   // Objects for moving test scene
   public GameObject l_mug1;
@@ -32,10 +33,6 @@ public class load_kitchen : MonoBehaviour {
   public GameObject r_mug5;
   public GameObject left_ring;
   public GameObject right_ring;
-  public GameObject left_arc;
-  public GameObject right_arc;
-  public GameObject beaker;
-  public GameObject spout;
 
   // Use this for initialization
   void Start() {
@@ -62,34 +59,29 @@ public class load_kitchen : MonoBehaviour {
     }
     else if (Data_tracker.currentScene == 4)
     {
-      island.SetActive(true);
-      r_mug1.SetActive(true);
-      r_mug2.SetActive(true);
-      r_mug3.SetActive(true);
-      r_mug4.SetActive(true);
-      r_mug5.SetActive(true);
-      right_ring.SetActive(true);
-      left_ring.SetActive(true);
-	  right_arc.SetActive(true);
-	  instr_cup.SetActive(true);
-      spout.SetActive(true);
+        island.SetActive(true);
+        l_mug1.SetActive(true);
+        l_mug2.SetActive(true);
+        l_mug3.SetActive(true);
+        l_mug4.SetActive(true);
+        l_mug5.SetActive(true);
+        left_ring.SetActive(true);
+        right_ring.SetActive(true);
+        instr_cup_L.SetActive(true);
     }
     else if(Data_tracker.currentScene == 5)
     {
-      island.SetActive(true);
-      l_mug1.SetActive(true);
-      l_mug2.SetActive(true);
-      l_mug3.SetActive(true);
-      l_mug4.SetActive(true);
-      l_mug5.SetActive(true);
-      left_ring.SetActive(true);
-      right_ring.SetActive(true);
-	  left_arc.SetActive(true);
-	  instr_cup.SetActive(true);
-      spout.SetActive(true);
+        island.SetActive(true);
+        r_mug1.SetActive(true);
+        r_mug2.SetActive(true);
+        r_mug3.SetActive(true);
+        r_mug4.SetActive(true);
+        r_mug5.SetActive(true);
+        right_ring.SetActive(true);
+        left_ring.SetActive(true);
+        instr_cup_R.SetActive(true);
     }
   }
-	
 	// Update is called once per frame
 	void Update () {
 		

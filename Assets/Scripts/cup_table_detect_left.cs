@@ -58,9 +58,6 @@ public class cup_table_detect_left : MonoBehaviour
 
     entered = false;
 
-    filename_left = "MUG_LEFT_time_" + System.DateTime.Now.ToString("MM-dd-yy_hh-mm-ss") + ".txt";
-    file_left = new StreamWriter(filename_left);
-
     mugHeight = mugLeft1.GetComponent<Renderer>().bounds.size.y;
     mugTopY = mugLeft1.transform.position.y + (mugHeight / 2);
     mugBotY = mugLeft1.transform.position.y - (mugHeight / 2);
@@ -120,28 +117,6 @@ public class cup_table_detect_left : MonoBehaviour
       mugRight5.SetActive(true);
     }
   }
-
-	/*void OnCollisionEnter(Collision other)
-	{
-		if (other.gameObject.tag == "Mug") {
-			roundCounter++;
-			Debug.Log ("Round Counter = " + roundCounter);
-		}
-		if(roundCounter == 5)
-		{
-			changeInstructions2();
-			mugLeft1.SetActive(false);
-			mugLeft2.SetActive(false);
-			mugLeft3.SetActive(false);
-			mugLeft4.SetActive(false);
-			mugLeft5.SetActive(false);
-			mugRight1.SetActive(true);
-			mugRight2.SetActive(true);
-			mugRight3.SetActive(true);
-			mugRight4.SetActive(true);
-			mugRight5.SetActive(true);
-		}
-	}*/
 
     //Usable
   IEnumerator back_to_main_menu()
