@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 5414ad8d8ad72914ebef91932e515acd
-timeCreated: 1488756555
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: BlenderGuru_Bathroom_Assets1:Mesh
     100002: CabinetDoor:pCube1
@@ -7620,26 +7618,219 @@ ModelImporter:
     4300396: polySurface2457
     4300398: polySurface2458
     9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Basket
+    second: {fileID: 2100000, guid: 6bf3213f40d1303499d77f5389937788, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CuttingBoard_phong2
+    second: {fileID: 2100000, guid: 6bf3213f40d1303499d77f5389937788, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: basket
+    second: {fileID: 2100000, guid: 6bf3213f40d1303499d77f5389937788, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert6
+    second: {fileID: 2100000, guid: 9f3c03fd9f6870a43b6b740fe5674b7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: model9_clay_Material_002
+    second: {fileID: 2100000, guid: 6469de2a76d7511478405daafb2ff65d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: model9_clay_None1
+    second: {fileID: 2100000, guid: 67178d34b0eb21f428a0f4eed0806c95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: model9_clay_None_3004024961_c9cde9a54f1
+    second: {fileID: 2100000, guid: dea9167a2f9359d43b1ac98dcc189c60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: model9_clay_None_3536853830_462a653be8
+    second: {fileID: 2100000, guid: d272976207363e44484add283daa1f1b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: model9_clay_None_4748346105_10b6344767
+    second: {fileID: 2100000, guid: 8b5cde5257765e44e96e3214b1163bb1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: model9_clay_None_939884465_6ceb83ff43_1
+    second: {fileID: 2100000, guid: f3056d48e7441a847a515e79713b6e2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: model9_clay_None_FoodVarious0014_M_jpg1
+    second: {fileID: 2100000, guid: dc88f963918e21f4da2c8e01f327dc91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: model9_clay_null_1
+    second: {fileID: 2100000, guid: 37addbf6443e18f47b8db98dbda5625a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong1
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong14
+    second: {fileID: 2100000, guid: 54b25c33ff3fed74c81e55d54b6ab4c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong15
+    second: {fileID: 2100000, guid: 9ea8167c08d7f244baefded3fba3a936, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong16
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong17
+    second: {fileID: 2100000, guid: 9ea8167c08d7f244baefded3fba3a936, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong18
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong19
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong20
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong22
+    second: {fileID: 2100000, guid: 9ea8167c08d7f244baefded3fba3a936, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong23
+    second: {fileID: 2100000, guid: d0721a33718a54048b60bd5fe43a856b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong24
+    second: {fileID: 2100000, guid: 60b276170f1b17042b4c5148055d48c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong25
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong26
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong27
+    second: {fileID: 2100000, guid: f7c995a27b6b7404bad3b178e0921144, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong29
+    second: {fileID: 2100000, guid: 6dd2bce3e87c4544794d4757b8c4f092, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong30
+    second: {fileID: 2100000, guid: 4fa303bcad57ba34e934a2e8c389a2b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong31
+    second: {fileID: 2100000, guid: cb9e8444a7ee18e46a4271e1547da0af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong32
+    second: {fileID: 2100000, guid: f9892dcbb1ea61142b720a7426e85b3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong4
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong5
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong6
+    second: {fileID: 2100000, guid: cbc5ccc0461eea243809acdb96d59925, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong7
+    second: {fileID: 2100000, guid: 7064348ccc6fb084bb6805116661109c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong8
+    second: {fileID: 2100000, guid: 7064348ccc6fb084bb6805116661109c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong9
+    second: {fileID: 2100000, guid: b0540ca67065806419c2240072de13ae, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -7647,13 +7838,18 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -7663,6 +7859,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
