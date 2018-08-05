@@ -33,11 +33,23 @@ public class Coffee_Rotation : MonoBehaviour {
     public StreamWriter file_right;
     public string filename_right;
 
+    //EDIT
+    public Vector3 rotation;
+
     public List<float> angleList;
     public float lowestValue;
 
     private float startTime;
     private float totalTime;
+
+
+    //EDIT
+    void OnTriggerExit(Collider col)
+    {
+        Debug.Log("z = " + Controller_Right.transform.rotation.z * 180);
+        Debug.Log("z = " + Controller_Left.transform.rotation.z * 180);
+    }
+
 
     // Use this for initialization
     void Start () {
@@ -67,10 +79,14 @@ public class Coffee_Rotation : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        Debug.Log("z = " + Controller_Right.transform.rotation.z * 180);
+        //Debug.Log("z = " + Controller_Right.transform.rotation.z * 180);
 
-        currentAngleZ_Left = Mathf.Abs(Controller_Left.transform.rotation.z * 180);
+        currentAngleZ_Left = Mathf.Abs(Controller_Left.transform.rotation.z * 180); // is this in degrees?
         currentAngleZ_Right = Mathf.Abs(Controller_Right.transform.rotation.z * 180);
+
+        //EDIT
+        //Debug.Log("z = " + currentAngleZ_Right);
+
 
         if (mug.transform.parent == attach_Right.transform || mug.transform.parent == attach_Left.transform)
         {
@@ -187,7 +203,7 @@ public class Coffee_Rotation : MonoBehaviour {
                     + Controller_Left.transform.position.x + "\t" + Controller_Left.transform.position.y + "\t" + Controller_Left.transform.position.z + "\t"
                     + currentAngleZ_Left +"\n");
 
-                Debug.Log(startTime + ", " + totalTime + ", " + Controller_Left.transform.position.x + ", " + Controller_Left.transform.position.y + ", " + Controller_Left.transform.position.z);
+                //Debug.Log(startTime + ", " + totalTime + ", " + Controller_Left.transform.position.x + ", " + Controller_Left.transform.position.y + ", " + Controller_Left.transform.position.z);
 
                 yield return new WaitForSeconds(.1f);
             }
