@@ -144,7 +144,7 @@ public class cup_table_detect_left_2 : MonoBehaviour
 	IEnumerator back_to_main_menu()
 	{
 		yield return new WaitForSeconds(5f);
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(2);
 	}
 
 	IEnumerator add_otherMugs(Transform A)

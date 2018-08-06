@@ -142,23 +142,8 @@ public class cut_fruit_right : MonoBehaviour {
             startTime = Time.time;
 
             StartCoroutine(back_to_main_menu());
-
-      //StartCoroutine(changeInstructions2());
-
-      //knife.transform.SetPositionAndRotation(initial_knife_pos, initial_knife_rot);
     }
-        Debug.Log(breadcounter);
-        if (breadcounter == 75)
-        {
-            stopTime = Time.time;
-            totalTime = stopTime - startTime;
-            Debug.Log("totalTime = " + totalTime.ToString() + " stopTime = " + stopTime.ToString() + " startTime = " + startTime.ToString());
-            file_right.WriteLine("Total Time in min:sec = " + Math.Floor(totalTime / 60) + ":" + Math.Round(totalTime % 60));
-            file_right.Close();
-
-            //cut_left.SetActive(false);
-            StartCoroutine(back_to_main_menu());
-        }
+    
         yield return new WaitForSeconds(0.5f);
         //yield return new WaitForSeconds(0.2f);
         other.SetActive(false);
