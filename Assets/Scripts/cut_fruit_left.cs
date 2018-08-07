@@ -153,7 +153,7 @@ public class cut_fruit_left : MonoBehaviour
   IEnumerator back_to_main_menu()
   {
     yield return new WaitForSeconds(5f);
-    SceneManager.LoadScene(0);
+    //SceneManager.LoadScene(0); //commented out
   }
 
   IEnumerator add_food(Transform A)
