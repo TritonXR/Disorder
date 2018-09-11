@@ -89,9 +89,10 @@ public class startcountdown : MonoBehaviour {
   {
     startTime = Time.time;
     startTiming = true;
-    while (count1 > -1)
+    StartCoroutine(RecordData1()); //THIS WAS ADDED
+    while (count1 > -1) //visual timer
     {
-      StartCoroutine(RecordData1());
+      //StartCoroutine(RecordData1());
       yield return new WaitForSeconds(1f);
       countdown_textm.text = count1.ToString();
       count1--;
@@ -106,9 +107,10 @@ public class startcountdown : MonoBehaviour {
 
     startTime = Time.time;
     startTiming = true;
-    while (count2 > -1)
+    StartCoroutine(RecordData2()); //THIS WAS ADDED
+    while (count2 > -1) //visual timer
     {
-      StartCoroutine(RecordData2());
+      //StartCoroutine(RecordData2());
       yield return new WaitForSeconds(1f);
       countdown_textm.text = count2.ToString();
       count2--;
@@ -134,13 +136,13 @@ public class startcountdown : MonoBehaviour {
         + rightHand.transform.position.x + "\t" + rightHand.transform.position.y + "\t" + rightHand.transform.position.z + "\t"
         + rightHand.transform.rotation.eulerAngles.x + "\t" + rightHand.transform.rotation.eulerAngles.y + "\t" + rightHand.transform.rotation.eulerAngles.z + "\n");
       //}
-      yield return new WaitForSeconds(.05f);
+      yield return new WaitForSeconds(.05f); //sampling rate set to 20Hz
     }
   }
 
   IEnumerator RecordData2()
   {
-    while (count2 > -1)
+    while (count2 > -1) 
     {
       //Debug.Log(totalTime.ToString());
       //if (started)
@@ -152,7 +154,7 @@ public class startcountdown : MonoBehaviour {
         + rightHand.transform.position.x + "\t" + rightHand.transform.position.y + "\t" + rightHand.transform.position.z + "\t"
         + rightHand.transform.rotation.eulerAngles.x + "\t" + rightHand.transform.rotation.eulerAngles.y + "\t" + rightHand.transform.rotation.eulerAngles.z + "\n");
       //}
-      yield return new WaitForSeconds(.05f);
-    }
+      yield return new WaitForSeconds(.05f); //sampling rate set to 20Hz
+        }
   }
 }
