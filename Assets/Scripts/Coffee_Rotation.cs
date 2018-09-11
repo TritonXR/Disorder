@@ -205,7 +205,7 @@ public class Coffee_Rotation : MonoBehaviour {
 
                 //Debug.Log(startTime + ", " + totalTime + ", " + Controller_Left.transform.position.x + ", " + Controller_Left.transform.position.y + ", " + Controller_Left.transform.position.z);
 
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(.05f);
             }
             else if (Controller_Right)
             {
@@ -213,7 +213,7 @@ public class Coffee_Rotation : MonoBehaviour {
                     + Controller_Right.transform.position.x + "\t" + Controller_Right.transform.position.y + "\t" + Controller_Right.transform.position.z + "\t"
                     + currentAngleZ_Right +"\n");
                
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(.05f);
             }
             /*
             file.WriteLine(totalTime.ToString() + "\t" +

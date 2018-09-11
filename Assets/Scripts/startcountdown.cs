@@ -134,7 +134,7 @@ public class startcountdown : MonoBehaviour {
         + rightHand.transform.position.x + "\t" + rightHand.transform.position.y + "\t" + rightHand.transform.position.z + "\t"
         + rightHand.transform.rotation.eulerAngles.x + "\t" + rightHand.transform.rotation.eulerAngles.y + "\t" + rightHand.transform.rotation.eulerAngles.z + "\n");
       //}
-      yield return new WaitForSeconds(.1f);
+      yield return new WaitForSeconds(.05f);
     }
   }
 
@@ -152,7 +152,7 @@ public class startcountdown : MonoBehaviour {
         + rightHand.transform.position.x + "\t" + rightHand.transform.position.y + "\t" + rightHand.transform.position.z + "\t"
         + rightHand.transform.rotation.eulerAngles.x + "\t" + rightHand.transform.rotation.eulerAngles.y + "\t" + rightHand.transform.rotation.eulerAngles.z + "\n");
       //}
-      yield return new WaitForSeconds(.1f);
+      yield return new WaitForSeconds(.05f);
     }
   }
 }

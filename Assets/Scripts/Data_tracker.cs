@@ -40,6 +40,10 @@ public class Data_tracker : MonoBehaviour
     void Update()
     {
         // if knife is grabbed, started = true?
+        //increase frame rate from 10Hz to 16 Hz
+
+        //Time.deltaTime = 0.05;
+
 
         if (finished)
             return;
@@ -62,7 +66,7 @@ public class Data_tracker : MonoBehaviour
 				+ rightHand.transform.position.x + "\t" + rightHand.transform.position.y + "\t" + rightHand.transform.position.z + "\t"
 				+ rightHand.transform.rotation.eulerAngles.x + "\t" + rightHand.transform.rotation.eulerAngles.y + "\t" + rightHand.transform.rotation.eulerAngles.z + "\n");
             //}
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.05f);
         }
     }
 }
