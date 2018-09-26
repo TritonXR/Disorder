@@ -46,8 +46,8 @@ public class Coffee_Rotation : MonoBehaviour {
     //EDIT
     void OnTriggerExit(Collider col)
     {
-        Debug.Log("z = " + Controller_Right.transform.rotation.z * 180);
-        Debug.Log("z = " + Controller_Left.transform.rotation.z * 180);
+        //Debug.Log("z = " + Controller_Right.transform.rotation.z * 180);
+        //Debug.Log("z = " + Controller_Left.transform.rotation.z * 180);
     }
 
 

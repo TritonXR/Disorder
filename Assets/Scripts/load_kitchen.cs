@@ -33,6 +33,7 @@ public class load_kitchen : MonoBehaviour {
   public GameObject r_mug5;
   public GameObject left_ring;
   public GameObject right_ring;
+  public GameObject platform;
 
   // Use this for initialization
   void Start() {
@@ -68,6 +69,7 @@ public class load_kitchen : MonoBehaviour {
         left_ring.SetActive(true);
         right_ring.SetActive(true);
         instr_cup_L.SetActive(true);
+        platform.SetActive(true);
     }
     else if(Data_tracker.currentScene == 5)
     {
@@ -80,7 +82,8 @@ public class load_kitchen : MonoBehaviour {
         right_ring.SetActive(true);
         left_ring.SetActive(true);
         instr_cup_R.SetActive(true);
-    }
+        platform.SetActive(true);
+        }
   }
 	// Update is called once per frame
 	void Update () {

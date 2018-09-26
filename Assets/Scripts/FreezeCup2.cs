@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.IO;
 
 public class FreezeCup2 : MonoBehaviour {
 
+    public GameObject camera;
 	public Rigidbody m_Rigidbody;
 	private VRTK.Examples.Sword anotherScript;
 	public bool stuck;
 	public int counter;
 	public int roundCounter;
 	public GameObject tableTop;
+    public int cylinder_counter = 0;
 
-	// Use this for initialization
-	void Start () {
+    //File to record the data
+    public StreamWriter file;
+    private String filename;
+
+    // Use this for initialization
+    void Start () {
 		stuck = false;
 		m_Rigidbody = GetComponent<Rigidbody>();
 		anotherScript = GetComponent<VRTK.Examples.Sword>();
@@ -32,7 +40,25 @@ public class FreezeCup2 : MonoBehaviour {
 		Debug.Log ("counter = " + counter);
 		if (other.gameObject.tag == "OtherSection2") {
 			counter++;
-		}
+            cylinder_counter = 0;
+            foreach (Transform child in transform.Find("Coffee_Set"))
+            {
+                if (child.gameObject.activeSelf)
+                    cylinder_counter++;
+            }
+            Debug.Log("cylinder_counter: " + cylinder_counter);
+            if (camera.GetComponent<mug_filename_tracker>().mug_data_filename == "")
+            {
+                filename = "mugdata_right_" + System.DateTime.Now.ToString("MM-dd-yy_hh-mm-ss") + ".txt";
+                camera.GetComponent<mug_filename_tracker>().mug_data_filename = filename;
+            }
+            else
+            {
+                filename = camera.GetComponent<mug_filename_tracker>().mug_data_filename;
+            }
+            file = new StreamWriter(filename);
+            file.WriteLine(cylinder_counter + ", ");
+        }
 	}
 
 	void OnTriggerEnter(Collider other)
