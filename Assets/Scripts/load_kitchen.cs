@@ -21,11 +21,13 @@ public class load_kitchen : MonoBehaviour {
   public GameObject instr_cup_R;
 
   // Objects for moving test scene
+  public GameObject l_mugParent;
   public GameObject l_mug1;
   public GameObject l_mug2;
   public GameObject l_mug3;
   public GameObject l_mug4;
   public GameObject l_mug5;
+  public GameObject r_mugParent;
   public GameObject r_mug1;
   public GameObject r_mug2;
   public GameObject r_mug3;
@@ -61,6 +63,7 @@ public class load_kitchen : MonoBehaviour {
     else if (Data_tracker.currentScene == 4)
     {
         island.SetActive(true);
+        l_mugParent.SetActive(true);
         l_mug1.SetActive(true);
         l_mug2.SetActive(true);
         l_mug3.SetActive(true);
@@ -74,6 +77,7 @@ public class load_kitchen : MonoBehaviour {
     else if(Data_tracker.currentScene == 5)
     {
         island.SetActive(true);
+        r_mugParent.SetActive(true);
         r_mug1.SetActive(true);
         r_mug2.SetActive(true);
         r_mug3.SetActive(true);

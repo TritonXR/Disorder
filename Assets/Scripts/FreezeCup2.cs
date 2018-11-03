@@ -4,85 +4,71 @@ using UnityEngine;
 using System;
 using System.IO;
 
-public class FreezeCup2 : MonoBehaviour {
+public class FreezeCup2 : MonoBehaviour
+{
 
     public GameObject camera;
-	public Rigidbody m_Rigidbody;
-	private VRTK.Examples.Sword anotherScript;
-	public bool stuck;
-	public int counter;
-	public int roundCounter;
-	public GameObject tableTop;
+    public Rigidbody m_Rigidbody;
+    private VRTK.Examples.Sword anotherScript;
+    public bool stuck;
+    public int counter;
+    public int roundCounter;
+    public GameObject tableTop;
     public int cylinder_counter = 0;
-
-    //File to record the data
-    public StreamWriter file;
-    private String filename;
+    public GameObject rightParent;
+    private List<int> coffeeCounters;
+    private leftMugs rightMugsScript;
 
     // Use this for initialization
-    void Start () {
-		stuck = false;
-		m_Rigidbody = GetComponent<Rigidbody>();
-		anotherScript = GetComponent<VRTK.Examples.Sword>();
-	}
+    void Start()
+    {
+        stuck = false;
+        m_Rigidbody = GetComponent<Rigidbody>();
+        anotherScript = GetComponent<VRTK.Examples.Sword>();
+        rightMugsScript = rightParent.GetComponent<leftMugs>();
+        coffeeCounters = rightMugsScript.coffeeCounters;
+    }
 
-	// Update is called once per frame
-	void Update () 
-	{
-		if (counter > 0)
-		{
-			anotherScript.isGrabbable = false;
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        if (counter > 0)
+        {
+            anotherScript.isGrabbable = false;
+        }
 
-	void OnCollisionEnter(Collision other)
-	{
-		Debug.Log ("counter = " + counter);
-		if (other.gameObject.tag == "OtherSection2") {
-			counter++;
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "OtherSection")
+        {
+            counter++;
+            //Debug.Log("counter = " + counter);
             cylinder_counter = 0;
+
             foreach (Transform child in transform.Find("Coffee_Set"))
             {
                 if (child.gameObject.activeSelf)
                     cylinder_counter++;
             }
-            Debug.Log("cylinder_counter: " + cylinder_counter);
-            if (camera.GetComponent<mug_filename_tracker>().mug_data_filename == "")
+            coffeeCounters.Add(cylinder_counter);
+            rightMugsScript.updateCounter(cylinder_counter);
+
+            if (coffeeCounters.Count == 5)
             {
-                filename = "mugdata_right_" + System.DateTime.Now.ToString("MM-dd-yy_hh-mm-ss") + ".txt";
-                camera.GetComponent<mug_filename_tracker>().mug_data_filename = filename;
+                rightMugsScript.writeToFile();
             }
-            else
-            {
-                filename = camera.GetComponent<mug_filename_tracker>().mug_data_filename;
-            }
-            file = new StreamWriter(filename);
-            file.WriteLine(cylinder_counter + ", ");
         }
-	}
 
-	void OnTriggerEnter(Collider other)
-	{
-		if(other.CompareTag("GameController"))
-		{
-			stuck = true;
-		}
+    }
 
-		/*if (transform.position.x < -1 && transform.position.x > -2)
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("GameController"))
         {
-            if (transform.position.z < 0 && transform.position.z > -0.5)
-            {
-                if (transform.position.y < 1.34 && transform.position.y > 1.36)
-                {
-                    m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX;
-                    m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationY;
-                    m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ;
-                    m_Rigidbody.useGravity = false;
-                    anotherScript.isGrabbable = false;
-                    stuck = true;
-                    Debug.Log("It's WORKING");
-                }
-            }
-        }*/
-	}
+            stuck = true;
+        }
+
+    }
 }
