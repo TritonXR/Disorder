@@ -25,6 +25,7 @@ public class FreezeCup1 : MonoBehaviour {
         anotherScript = GetComponent<VRTK.Examples.Sword>();
         leftMugsScript = leftParent.GetComponent<leftMugs>();
         coffeeCounters = leftMugsScript.coffeeCounters;
+        counter = 0;
     }
 
     // Update is called once per frame
@@ -49,13 +50,7 @@ public class FreezeCup1 : MonoBehaviour {
                 if (child.gameObject.activeSelf)
                     cylinder_counter++;
             }
-            coffeeCounters.Add(cylinder_counter);
             leftMugsScript.updateCounter(cylinder_counter);
-
-            if(coffeeCounters.Count == 5)
-            {
-                leftMugsScript.writeToFile();
-            }
         }
 
     }

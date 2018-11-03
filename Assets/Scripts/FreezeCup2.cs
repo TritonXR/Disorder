@@ -27,6 +27,7 @@ public class FreezeCup2 : MonoBehaviour
         anotherScript = GetComponent<VRTK.Examples.Sword>();
         rightMugsScript = rightParent.GetComponent<leftMugs>();
         coffeeCounters = rightMugsScript.coffeeCounters;
+        counter = 0;
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class FreezeCup2 : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "OtherSection")
+        if (other.gameObject.tag == "OtherSection2")
         {
             counter++;
             //Debug.Log("counter = " + counter);
@@ -52,13 +53,7 @@ public class FreezeCup2 : MonoBehaviour
                 if (child.gameObject.activeSelf)
                     cylinder_counter++;
             }
-            coffeeCounters.Add(cylinder_counter);
             rightMugsScript.updateCounter(cylinder_counter);
-
-            if (coffeeCounters.Count == 5)
-            {
-                rightMugsScript.writeToFile();
-            }
         }
 
     }

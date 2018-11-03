@@ -8,7 +8,7 @@ public class leftMugs : MonoBehaviour {
     public List<int> coffeeCounters;
     public GameObject[] mugs;
     //File to record the data
-    public StreamWriter file;
+    private StreamWriter file;
     public string direction;
     private String filename;
     private String text;
@@ -43,6 +43,12 @@ public class leftMugs : MonoBehaviour {
     public void updateCounter(int cylinder_counter)
     {
         text += cylinder_counter.ToString() + ", ";
-        Debug.Log(text);
+        coffeeCounters.Add(cylinder_counter);
+        Debug.Log(coffeeCounters.Count);
+        if(coffeeCounters.Count == 5)
+        {
+            writeToFile();
+        }
+        //Debug.Log(text);
     }
 }
