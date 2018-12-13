@@ -136,7 +136,7 @@ public class startcountdown : MonoBehaviour {
         + rightHand.transform.position.x + "\t" + rightHand.transform.position.y + "\t" + rightHand.transform.position.z + "\t"
         + rightHand.transform.rotation.eulerAngles.x + "\t" + rightHand.transform.rotation.eulerAngles.y + "\t" + rightHand.transform.rotation.eulerAngles.z + "\n");
       //}
-      yield return new WaitForSeconds(.05f); //sampling rate set to 20Hz
+      yield return new WaitForSeconds(.01f); //sampling rate set to 100Hz; change to 0.05 for 20Hz
     }
   }
 
@@ -154,7 +154,7 @@ public class startcountdown : MonoBehaviour {
         + rightHand.transform.position.x + "\t" + rightHand.transform.position.y + "\t" + rightHand.transform.position.z + "\t"
         + rightHand.transform.rotation.eulerAngles.x + "\t" + rightHand.transform.rotation.eulerAngles.y + "\t" + rightHand.transform.rotation.eulerAngles.z + "\n");
       //}
-      yield return new WaitForSeconds(.05f); //sampling rate set to 20Hz
+      yield return new WaitForSeconds(.01f); //sampling rate set to 100Hz;
         }
   }
 }
