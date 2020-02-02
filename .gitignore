@@ -7,6 +7,7 @@
 !/ProjectSettings/
 !.gitignore
 !/Disorder_Images/
+data*.txt
 
 # OS Stuff
 .DS_Store

@@ -43,5 +43,10 @@ public class Change_Scenes : MonoBehaviour {
       SceneManager.LoadScene(2);
       Data_tracker.currentScene = 5;
     }
-  }
+    if (Input.GetKeyDown("6"))
+    {
+        SceneManager.LoadScene(2);
+        Data_tracker.currentScene = 6;
+    }
+    }
 }
