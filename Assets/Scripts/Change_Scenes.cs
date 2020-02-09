@@ -12,18 +12,18 @@ public class Change_Scenes : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	if(Input.GetKeyDown("0"))
+	if(Input.GetKeyDown("0")) // main menu; no test
     {
 	SceneManager.LoadScene(2);
       Data_tracker.currentScene = 0; 
     }
 
-    if (Input.GetKeyDown("1"))
+    if (Input.GetKeyDown("1")) // Tremor test w/ controllers
     {
       SceneManager.LoadScene(2);
       Data_tracker.currentScene = 1;
     }
-    if (Input.GetKeyDown("2"))
+    if (Input.GetKeyDown("2")) // Cutting test: left ro right
     {
       SceneManager.LoadScene(2);
       Data_tracker.currentScene = 2;
@@ -48,5 +48,14 @@ public class Change_Scenes : MonoBehaviour {
         SceneManager.LoadScene(2);
         Data_tracker.currentScene = 6;
     }
+
+    if (Input.GetKeyDown("7"))
+        {
+            SceneManager.LoadScene(2);
+            Data_tracker.currentScene = 7;
+        }
+
+
+
     }
 }

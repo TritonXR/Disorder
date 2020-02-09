@@ -37,14 +37,23 @@ public class load_kitchen : MonoBehaviour {
   public GameObject right_ring;
   public GameObject platform;
 
-  // Use this for initialization
-  void Start() {
+  // Objects for finger-to-nose test
+  public GameObject redbox1;
+  public GameObject redbox2;
+  public GameObject bluebox1;
+  public GameObject bluebox2;
+
+
+    // Use this for initialization
+    void Start() {
     if (Data_tracker.currentScene == 1)
     {
       hands.SetActive(true);
       instruction1.SetActive(true);
     }
-    else if (Data_tracker.currentScene == 2)
+
+
+    else if (Data_tracker.currentScene == 2) // Cutting test L
     {
       island.SetActive(true);
       foods_left.SetActive(true);
@@ -52,7 +61,7 @@ public class load_kitchen : MonoBehaviour {
       cuttingboard.SetActive(true);
       instructionL.SetActive(true);
     }
-    else if (Data_tracker.currentScene == 3)
+    else if (Data_tracker.currentScene == 3) // Cutting test R
     {
       island.SetActive(true);
       foods_right.SetActive(true);
@@ -60,7 +69,7 @@ public class load_kitchen : MonoBehaviour {
       cuttingboard.SetActive(true);
       instructionR.SetActive(true);
     }
-    else if (Data_tracker.currentScene == 4)
+    else if (Data_tracker.currentScene == 4) // mug test L
     {
         island.SetActive(true);
         l_mugParent.SetActive(true);
@@ -74,7 +83,7 @@ public class load_kitchen : MonoBehaviour {
         instr_cup_L.SetActive(true);
         platform.SetActive(true);
     }
-    else if(Data_tracker.currentScene == 5)
+    else if(Data_tracker.currentScene == 5) //mug test R
     {
         island.SetActive(true);
         r_mugParent.SetActive(true);
@@ -87,6 +96,17 @@ public class load_kitchen : MonoBehaviour {
         left_ring.SetActive(true);
         instr_cup_R.SetActive(true);
         platform.SetActive(true);
+        }
+
+    else if (Data_tracker.currentScene == 6) //finger-nose-test
+        {
+
+
+        }
+    else if (Data_tracker.currentScene == 7) // same as Scene '1' but with Leap Motion
+        {
+            hands.SetActive(true);
+            instruction1.SetActive(true); // Need to change isntructions displayed; remove 'controllers' ######
         }
   }
 	// Update is called once per frame
